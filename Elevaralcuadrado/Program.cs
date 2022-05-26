@@ -12,30 +12,30 @@ namespace Elevaralcuadrado
         {
             //Declaracion de variabkes
             int number;
-            bool continua;
+            bool error;
             do
             {
                 try
                 {
-                    continua = false;
+                    error = false;
                     Console.Write("Enter number: ");
                     number = int.Parse(Console.ReadLine());
                     Console.WriteLine("Result: " + Math.Pow(number, 2));
                 }
                 catch (FormatException e)
                 {
-                    continua = true;
+                    error = true;
                     Console.WriteLine("Solo se aceptan numeros enteros y no letras");
                     Console.WriteLine(e.Message);
 
                 }
                 catch (OverflowException e)
                 {
-                    continua = true;
+                    error = true;
                     Console.WriteLine("Valor no soportado");
                     Console.WriteLine(e.Message);
                 }
-            } while (continua == true);
+            } while (error == true);
             Console.WriteLine("Presione enter para continuar");
             Console.ReadKey();
         }
